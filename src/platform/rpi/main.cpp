@@ -275,6 +275,18 @@ InputKey codeToInputKey(int code) {
 JoyKey codeToJoyKey(int code) {
     switch (code) {
     // gamepad
+        case BTN_THUMB      : return jkA;
+        case BTN_THUMB2     : return jkB;
+        case BTN_TRIGGER    : return jkX;
+        case BTN_TOP        : return jkY;
+        case BTN_TOP2       : return jkLB;
+        case BTN_PINKIE     : return jkRB;
+        case BTN_BASE       : return jkLT;
+        case BTN_BASE2      : return jkRT;
+        case BTN_BASE3      : return jkSelect;
+        case BTN_BASE4      : return jkStart;
+        case BTN_BASE5      : return jkL;
+        case BTN_BASE6      : return jkR;
         case BTN_A          : return jkA;
         case BTN_B          : return jkB;
         case BTN_X          : return jkX;
