@@ -13,6 +13,7 @@
 #include <alsa/asoundlib.h>
 
 #include "game.h"
+#include "8bitdo.h"
 
 #define WND_TITLE    "OpenLara"
 
@@ -284,8 +285,12 @@ JoyKey codeToJoyKey(int code) {
         case BTN_START      : return jkStart;
         case BTN_THUMBL     : return jkL;
         case BTN_THUMBR     : return jkR;
+#ifndef BTN_TL2
         case BTN_TL2        : return jkLT;
+#endif
+#ifndef BTN_TR2
         case BTN_TR2        : return jkRT;
+#endif
     }
     return jkNone;
 }

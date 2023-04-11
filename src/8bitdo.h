@@ -1,0 +1,17 @@
+#define BTN_SOUTH               0x131
+#define BTN_A                   BTN_SOUTH
+#define BTN_EAST                0x130
+#define BTN_B                   BTN_EAST
+#define BTN_NORTH               0x133
+#define BTN_X                   BTN_NORTH
+#define BTN_WEST                0x132
+#define BTN_Y                   BTN_WEST
+#define BTN_TL                  0x134
+#define BTN_TR                  0x135
+#define BTN_TL2                 0x138
+#define BTN_TR2                 0x139
+#define BTN_SELECT              0x136
+#define BTN_START               0x137
+#define BTN_MODE                0x8B
+#define BTN_THUMBL              0x138
+#define BTN_THUMBR              0x139
