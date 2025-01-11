@@ -156,7 +156,7 @@ void joyInit() {
         ioctl(joy.fd, JSIOCGBUTTONS, &buttons);
         ioctl(joy.fd, JSIOCGAXMAP, joy.axismap);
 
-        if (axes < 4 || buttons < 11) { // is it really a gamepad?
+        if (axes < 4 || buttons < 10) { // is it really a gamepad?
             close(joy.fd);
             joy.fd = -1;
             continue;
