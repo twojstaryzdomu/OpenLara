@@ -202,6 +202,36 @@ void joyInit() {
     }
 }
 
+void joyReInit() {
+    if (!(Core::getTime() % 10^6)) return;
+    int fd;
+    bool reinit = false;
+    char name[128];
+
+    for (int i = 0; i < INPUT_JOY_COUNT; i++) {
+        JoyDevice &joy = joyDevice[i];
+
+        sprintf(name, "/dev/input/js%d", i);
+        fd = open(name, O_RDONLY | O_NONBLOCK);
+
+        if (fd < 0 && joy.fd > 0) {
+            LOG("removed gamepad %d\n", i + 1);
+            close(joy.fd);
+            joy.fd = -1;
+        }
+
+        if (fd > 0) {
+            close(fd);
+            if (joy.fd < 0) {
+                LOG("re");
+                reinit = true;
+            }
+        }
+    }
+    if (reinit)
+        joyInit();
+}
+
 void joyFree() {
     for (int i = 0; i < INPUT_JOY_COUNT; i++) {
         JoyDevice &joy = joyDevice[i];
@@ -531,6 +561,7 @@ int main(int argc, char **argv) {
                 Core::quit();
             WndProc(event, dpy, wnd);
         } else {
+            joyReInit();
             joyUpdate();
             bool updated = Game::update();
             if (updated) {
